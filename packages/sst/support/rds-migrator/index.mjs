@@ -23,6 +23,7 @@ export async function handler(evt) {
   console.log("creating migrator");
   const migrator = new Migrator({
     db,
+    allowUnorderedMigrations: true,
     provider: new DynamicFileMigrationProvider(
       path.resolve(process.env.RDS_MIGRATIONS_PATH)
     ),
